@@ -292,10 +292,10 @@ const DescribeImage = () => {
     <div className="container animate-fade-in" style={{ paddingTop: '2rem', paddingBottom: '5rem', maxWidth: '1400px' }}>
       <h2 style={{ marginBottom: '2rem', color: 'var(--primary-color)' }}>Speaking Module: Describe Image</h2>
     
-      <div style={{ display: 'flex', gap: '2rem', flexDirection: 'row', alignItems: 'flex-start' }}>
+      <div className="module-layout">
         
         {/* LEFT SIDEBAR - Question Navigation */}
-        <div className="glass-panel" style={{ width: '300px', flexShrink: 0, padding: '1.5rem', maxHeight: '80vh', overflowY: 'auto' }}>
+        <div className="glass-panel module-sidebar">
           <h4 style={{ marginBottom: '1rem', color: 'var(--text-secondary)' }}>Questions</h4>
           
           <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
@@ -340,7 +340,7 @@ const DescribeImage = () => {
         </div>
 
         {/* RIGHT AREA - Question Content & Recording */}
-        <div style={{ flex: 1 }}>
+        <div className="module-main">
           {!currentQuestion ? (
             <div className="glass-panel" style={{ padding: '3rem', textAlign: 'center' }}>
               <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>Please select a question from the sidebar.</p>

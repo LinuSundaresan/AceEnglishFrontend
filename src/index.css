@@ -127,6 +127,7 @@ h1 {
   padding: 0 2rem;
 }
 
+/* Module Layouts */
 .flex-center {
   display: flex;
   align-items: center;
@@ -157,3 +158,144 @@ h1 {
 .animate-pulse-dot {
   animation: pulse 2s infinite;
 }
+
+/* Navigation */
+.navbar {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-img {
+  height: 32px;
+  width: 32px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.nav-link-accent {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-link-active {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-btn {
+  padding: 0.5rem 1rem;
+}
+
+/* Module Layouts */
+.module-layout {
+  display: flex;
+  gap: 2rem;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.module-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  padding: 1.5rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.module-main {
+  flex-grow: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .module-layout {
+    flex-direction: column-reverse;
+  }
+  .module-sidebar {
+    width: 100%;
+    max-height: 50vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .flex-center {
+    flex-direction: column;
+    gap: 1rem !important;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
+
