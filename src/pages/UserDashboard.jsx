@@ -20,7 +20,7 @@ const UserDashboard = () => {
   useEffect(() => {
     if (user) {
       // Fetch general stats
-      fetch(`http://localhost:5000/api/attempts/user/${user._id}`)
+      fetch(`${import.meta.env.VITE_API_URL}/api/attempts/user/${user._id}`)
         .then(res => res.json())
         .then(data => {
           if (data && data.length > 0) {
@@ -33,7 +33,7 @@ const UserDashboard = () => {
         .catch(err => console.error(err));
         
       // Fetch detailed analytics for charts
-      fetch(`http://localhost:5000/api/attempts/analytics/user/${user._id}`)
+      fetch(`${import.meta.env.VITE_API_URL}/api/attempts/analytics/user/${user._id}`)
         .then(res => res.json())
         .then(data => setAnalyticsData(data))
         .catch(err => console.error('Error fetching analytics:', err));

@@ -16,7 +16,7 @@ import UserDashboard from './pages/UserDashboard';
 
 function App() {
   const [userInfo, setUserInfo] = useState(null);
-  const [logoUrl, setLogoUrl] = useState('http://localhost:5000/api/settings/logo');
+  const [logoUrl, setLogoUrl] = useState(`${import.meta.env.VITE_API_URL}/api/settings/logo`);
 
   useEffect(() => {
     const user = localStorage.getItem('userInfo');

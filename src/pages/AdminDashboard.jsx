@@ -18,7 +18,7 @@ const AdminDashboard = () => {
     try {
       const data = new FormData();
       data.append('logo', logoFile);
-      const response = await fetch('http://localhost:5000/api/settings/logo', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/settings/logo`, {
         method: 'POST',
         body: data
       });
@@ -37,7 +37,7 @@ const AdminDashboard = () => {
 
   const fetchQuestions = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/questions');
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/questions`);
       const data = await response.json();
       setQuestions(data);
     } catch (error) {
@@ -74,7 +74,7 @@ const AdminDashboard = () => {
         data.append('image', formData.image);
       }
 
-      const response = await fetch('http://localhost:5000/api/questions', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/questions`, {
         method: 'POST',
         body: data
       });
@@ -94,7 +94,7 @@ const AdminDashboard = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/questions/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/questions/${id}`, {
         method: 'DELETE'
       });
       if (response.ok) {

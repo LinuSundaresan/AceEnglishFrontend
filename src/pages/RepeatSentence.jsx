@@ -36,13 +36,13 @@ const RepeatSentence = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const qRes = await fetch('http://localhost:5000/api/questions');
+        const qRes = await fetch(`${import.meta.env.VITE_API_URL}/api/questions`);
         const qData = await qRes.json();
         const rsQuestions = qData.filter(q => q.questionType === 'Repeat Sentence');
         setQuestions(rsQuestions);
 
         if (user) {
-          const aRes = await fetch(`http://localhost:5000/api/attempts/user/${user._id}`);
+          const aRes = await fetch(`${import.meta.env.VITE_API_URL}/api/attempts/user/${user._id}`);
           const aData = await aRes.json();
           setAllUserAttempts(aData);
         }
@@ -72,7 +72,7 @@ const RepeatSentence = () => {
 
   useEffect(() => {
     if (currentQuestion && user) {
-      fetch(`http://localhost:5000/api/attempts/user/${user._id}/question/${currentQuestion._id}`)
+      fetch(`${import.meta.env.VITE_API_URL}/api/attempts/user/${user._id}/question/${currentQuestion._id}`)
         .then(res => res.json())
         .then(data => setCurrentQuestionAttempts(data))
         .catch(err => console.error(err));
@@ -264,7 +264,7 @@ const RepeatSentence = () => {
         formData.append('audio', blob, 'recording.wav');
       }
 
-      const res = await fetch('http://localhost:5000/api/attempts', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/attempts`, {
         method: 'POST',
         body: formData
       });
